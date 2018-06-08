@@ -13,8 +13,16 @@ android {
     }
 
     buildTypes {
-        def endpoint = project.properties.get("endpoint")
+        def properties = new Properties()
+        def propertiesFile = rootProject.file("project.properties")
 
+        if (!propertiesFile.exists()) {
+            throw new GradleException("Please add a project.properties file with an endpoint property.")
+        }
+
+        propertiesFile.withInputStream { properties.load(it) }
+
+        def endpoint = properties.get("endpoint")
         if (endpoint == null) {
             throw new GradleException("Please add an endpoint property.")
         }
