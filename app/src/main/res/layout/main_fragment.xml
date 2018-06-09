@@ -52,8 +52,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/player_1_hint"
                             android:inputType="text"
-                            android:maxLines="1"
-                            android:text="Tobi" />
+                            android:maxLines="1" />
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
@@ -87,8 +86,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/player_2_hint"
                             android:inputType="text"
-                            android:maxLines="1"
-                            android:text="Tobi2" />
+                            android:maxLines="1" />
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
@@ -116,8 +114,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/score_hint"
                         android:inputType="number"
-                        android:maxLines="1"
-                        android:text="10" />
+                        android:maxLines="1" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -158,8 +155,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/player_1_hint"
                             android:inputType="text"
-                            android:maxLines="1"
-                            android:text="Sascha" />
+                            android:maxLines="1" />
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
@@ -193,8 +189,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/player_2_hint"
                             android:inputType="text"
-                            android:maxLines="1"
-                            android:text="Sascha2" />
+                            android:maxLines="1" />
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
@@ -222,8 +217,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/score_hint"
                         android:imeOptions="actionDone"
-                        android:inputType="number"
-                        android:text="3" />
+                        android:inputType="number" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
