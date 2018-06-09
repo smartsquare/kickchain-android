@@ -48,17 +48,21 @@ class MainFragment : Fragment() {
     private val team1Player1NameInput by bindView<TextInputEditText>(R.id.team1Player1NameInput)
     private val team1Player2NameInputContainer by bindView<TextInputLayout>(R.id.team1Player2NameInputContainer)
     private val team1Player2NameInput by bindView<TextInputEditText>(R.id.team1Player2NameInput)
-    private val team1AddPlayerButton by bindView<ImageView>(R.id.team1AddPlayerButton)
     private val team1ScoreInputContainer by bindView<TextInputLayout>(R.id.team1ScoreInputContainer)
     private val team1ScoreInput by bindView<TextInputEditText>(R.id.team1ScoreInput)
+
+    private val team1AddPlayerButton by bindView<ImageView>(R.id.team1AddPlayerButton)
+    private val team1RemovePlayerButton by bindView<ImageView>(R.id.team1RemovePlayerButton)
 
     private val team2Player1NameInputContainer by bindView<TextInputLayout>(R.id.team2Player1NameInputContainer)
     private val team2Player1NameInput by bindView<TextInputEditText>(R.id.team2Player1NameInput)
     private val team2Player2NameInputContainer by bindView<TextInputLayout>(R.id.team2Player2NameInputContainer)
     private val team2Player2NameInput by bindView<TextInputEditText>(R.id.team2Player2NameInput)
-    private val team2AddPlayerButton by bindView<ImageView>(R.id.team2AddPlayerButton)
     private val team2ScoreInputContainer by bindView<TextInputLayout>(R.id.team2ScoreInputContainer)
     private val team2ScoreInput by bindView<TextInputEditText>(R.id.team2ScoreInput)
+
+    private val team2AddPlayerButton by bindView<ImageView>(R.id.team2AddPlayerButton)
+    private val team2RemovePlayerButton by bindView<ImageView>(R.id.team2RemovePlayerButton)
 
     private val errorTextViewContainer by bindView<ViewGroup>(R.id.errorTextViewContainer)
     private val errorTextView by bindView<TextView>(R.id.errorTextView)
@@ -79,6 +83,15 @@ class MainFragment : Fragment() {
             .subscribe {
                 team1Player2NameInputContainer.visibility = View.VISIBLE
                 team1AddPlayerButton.visibility = View.GONE
+                team1RemovePlayerButton.visibility = View.VISIBLE
+            }
+
+        team1RemovePlayerButton.clicks()
+            .autoDisposable(this.scope(Lifecycle.Event.ON_DESTROY))
+            .subscribe {
+                team1Player2NameInputContainer.visibility = View.GONE
+                team1AddPlayerButton.visibility = View.VISIBLE
+                team1RemovePlayerButton.visibility = View.GONE
             }
 
         team2AddPlayerButton.clicks()
@@ -86,6 +99,15 @@ class MainFragment : Fragment() {
             .subscribe {
                 team2Player2NameInputContainer.visibility = View.VISIBLE
                 team2AddPlayerButton.visibility = View.GONE
+                team2RemovePlayerButton.visibility = View.VISIBLE
+            }
+
+        team2RemovePlayerButton.clicks()
+            .autoDisposable(this.scope(Lifecycle.Event.ON_DESTROY))
+            .subscribe {
+                team2Player2NameInputContainer.visibility = View.GONE
+                team2AddPlayerButton.visibility = View.VISIBLE
+                team2RemovePlayerButton.visibility = View.GONE
             }
 
         Observable.merge(team1ScoreInput.textChanges(), team2ScoreInput.textChanges())

@@ -26,7 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:animateLayoutChanges="true"
                 android:orientation="vertical">
 
                 <TextView
@@ -68,22 +67,42 @@
                         tools:ignore="ContentDescription" />
                 </LinearLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/team1Player2NameInputContainer"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    tools:visibility="visible">
+                    android:orientation="horizontal">
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/team1Player2NameInput"
-                        android:layout_width="match_parent"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/team1Player2NameInputContainer"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/player_2_hint"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:text="Tobi2" />
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/team1Player2NameInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/player_2_hint"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:text="Tobi2" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/team1RemovePlayerButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_remove"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription"
+                        tools:visibility="visible" />
+                </LinearLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/team1ScoreInputContainer"
@@ -113,7 +132,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:animateLayoutChanges="true"
                 android:orientation="vertical">
 
                 <TextView
@@ -155,22 +173,42 @@
                         tools:ignore="ContentDescription" />
                 </LinearLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/team2Player2NameInputContainer"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    tools:visibility="visible">
+                    android:orientation="horizontal">
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/team2Player2NameInput"
-                        android:layout_width="match_parent"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/team2Player2NameInputContainer"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/player_2_hint"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:text="Sascha2" />
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/team2Player2NameInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/player_2_hint"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:text="Sascha2" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/team2RemovePlayerButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_remove"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription"
+                        tools:visibility="visible" />
+                </LinearLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/team2ScoreInputContainer"
