@@ -1,5 +1,6 @@
 package de.smartsquare.kickchain.ui.main
 
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import de.smartsquare.kickchain.MainApplication
 import de.smartsquare.kickchain.domain.Game
@@ -8,6 +9,10 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class MainViewModel : ViewModel() {
+
+    val result = MutableLiveData<Unit?>()
+    val error = MutableLiveData<Throwable?>()
+    val isLoading = MutableLiveData<Boolean?>()
 
     private var gameDisposable: Disposable? = null
 
@@ -23,11 +28,19 @@ class MainViewModel : ViewModel() {
             gameDisposable = MainApplication.kickchainApi.createGame(game)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { gameDisposable = null }
+                    .doOnSubscribe {
+                        isLoading.value = true
+                        result.value = null
+                        error.value = null
+                    }
+                    .doAfterTerminate {
+                        gameDisposable = null
+                        isLoading.value = false
+                    }
                     .subscribe({
-
+                        result.value = Unit
                     }, {
-
+                        error.value = it
                     })
         }
     }

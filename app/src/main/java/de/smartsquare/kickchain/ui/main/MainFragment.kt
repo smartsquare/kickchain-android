@@ -1,9 +1,11 @@
 package de.smartsquare.kickchain.ui.main
 
 import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
@@ -14,6 +16,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.editorActionEvents
@@ -52,6 +55,7 @@ class MainFragment : Fragment() {
     private val errorTextViewContainer by bindView<ViewGroup>(R.id.errorTextViewContainer)
     private val errorTextView by bindView<TextView>(R.id.errorTextView)
     private val saveButton by bindView<Button>(R.id.saveButton)
+    private val progressBar by bindView<ProgressBar>(R.id.progressBar)
 
     private val viewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
 
@@ -81,6 +85,37 @@ class MainFragment : Fragment() {
         saveButton.clicks()
                 .autoDisposable(this.scope(Lifecycle.Event.ON_DESTROY))
                 .subscribe { createGame() }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        viewModel.isLoading.observe(this, Observer {
+            if (it == true) {
+                progressBar.visibility = View.VISIBLE
+                saveButton.visibility = View.GONE
+            } else {
+                progressBar.visibility = View.GONE
+                saveButton.visibility = View.VISIBLE
+            }
+        })
+
+        viewModel.result.observe(this, Observer {
+            if (it != null) {
+                team1ScoreInput.text.clear()
+                team2ScoreInput.text.clear()
+
+                Snackbar.make(root, "Success!", Snackbar.LENGTH_LONG).show()
+            }
+        })
+
+        viewModel.error.observe(this, Observer {
+            if (it != null) {
+                Log.e("My Kicker", Log.getStackTraceString(it))
+
+                Snackbar.make(root, "Error :/", Snackbar.LENGTH_LONG).show()
+            }
+        })
     }
 
     private fun validateScoresAndSetErrorIfPresent(): Boolean {

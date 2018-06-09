@@ -43,10 +43,10 @@
                         android:id="@+id/team1Player1NameInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tobi"
                         android:hint="Player 1"
                         android:inputType="text"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:text="Tobi" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -59,10 +59,10 @@
                         android:id="@+id/team1ScoreInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="10"
                         android:hint="Score"
                         android:inputType="number"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:text="10" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -95,9 +95,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Player 1"
-                        android:text="Sascha"
                         android:inputType="text"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:text="Sascha" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -111,9 +111,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Score"
-                        android:text="3"
                         android:imeOptions="actionDone"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:text="3" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -143,5 +143,13 @@
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:text="Speichern" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
