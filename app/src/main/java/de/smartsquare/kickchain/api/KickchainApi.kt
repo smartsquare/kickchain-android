@@ -9,5 +9,5 @@ import retrofit2.http.POST
 interface KickchainApi {
 
     @POST("/game/new")
-    fun createGame(@Body game: Game): Single<Response<Any>>
+    fun createGame(@Body game: Game): Single<Response<Void>>
 }
