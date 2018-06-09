@@ -15,3 +15,6 @@ val TextInputLayout.trimmedText
 
 val TextInputEditText.trimmedText
     get() = text.trim()
+
+val TextInputEditText.inputLayout
+    get() = this.parent.parent as TextInputLayout
