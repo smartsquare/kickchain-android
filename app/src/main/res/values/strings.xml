@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Kicker</string>
+
+    <string name="team_1_title">Team 1</string>
+    <string name="team_2_title">Team 2</string>
+    <string name="player_1_hint">Player 1</string>
+    <string name="player_2_hint">Player 2</string>
+    <string name="score_hint">Score</string>
+    <string name="save_text">Speichern</string>
 </resources>

@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team 1"
+                    android:text="@string/team_1_title"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <android.support.design.widget.TextInputLayout
@@ -43,7 +43,7 @@
                         android:id="@+id/team1Player1NameInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Player 1"
+                        android:hint="@string/player_1_hint"
                         android:inputType="text"
                         android:maxLines="1"
                         android:text="Tobi" />
@@ -59,7 +59,7 @@
                         android:id="@+id/team1ScoreInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Score"
+                        android:hint="@string/score_hint"
                         android:inputType="number"
                         android:maxLines="1"
                         android:text="10" />
@@ -82,7 +82,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team 2"
+                    android:text="@string/team_2_title"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <android.support.design.widget.TextInputLayout
@@ -94,7 +94,7 @@
                         android:id="@+id/team2Player1NameInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Player 1"
+                        android:hint="@string/player_1_hint"
                         android:inputType="text"
                         android:maxLines="1"
                         android:text="Sascha" />
@@ -110,7 +110,7 @@
                         android:id="@+id/team2ScoreInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Score"
+                        android:hint="@string/score_hint"
                         android:imeOptions="actionDone"
                         android:inputType="number"
                         android:text="3" />
@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="Speichern" />
+            android:text="@string/save_text" />
 
         <ProgressBar
             android:id="@+id/progressBar"
