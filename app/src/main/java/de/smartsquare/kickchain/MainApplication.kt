@@ -18,19 +18,19 @@ class MainApplication : Application() {
         super.onCreate()
 
         val client = OkHttpClient.Builder()
-                .apply {
-                    if (BuildConfig.DEBUG) {
-                        addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-                    }
+            .apply {
+                if (BuildConfig.DEBUG) {
+                    addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 }
-                .build()
+            }
+            .build()
 
         kickchainApi = Retrofit.Builder()
-                .client(client)
-                .baseUrl(BuildConfig.ENDPOINT)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build()
-                .create(KickchainApi::class.java)
+            .client(client)
+            .baseUrl(BuildConfig.ENDPOINT)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+            .create(KickchainApi::class.java)
     }
 }

@@ -7,4 +7,6 @@
     <string name="player_2_hint">Player 2</string>
     <string name="score_hint">Score</string>
     <string name="save_text">Speichern</string>
+    <string name="winner_message">%1$d - %2$d\n\nCongratulations\n</string>
+    <string name="winner_message_and"> and </string>
 </resources>

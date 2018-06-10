@@ -27,6 +27,7 @@ import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.kotlin.autoDisposable
 import de.smartsquare.kickchain.R
 import de.smartsquare.kickchain.domain.Game
+import de.smartsquare.kickchain.ui.result.WinnerDialog
 import de.smartsquare.kickchain.util.NameValidator
 import de.smartsquare.kickchain.util.ScoreValidator
 import de.smartsquare.kickchain.util.inputLayout
@@ -154,7 +155,7 @@ class MainFragment : Fragment() {
                 team1ScoreInput.text.clear()
                 team2ScoreInput.text.clear()
 
-                Snackbar.make(root, "Success!", Snackbar.LENGTH_LONG).show()
+                WinnerDialog.show(requireActivity(), it.winnerTeam.players, it.winnerScore, it.loserScore)
             }
         })
 

@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 
 class MainViewModel : ViewModel() {
 
-    val result = MutableLiveData<Unit?>()
+    val result = MutableLiveData<Game?>()
     val error = MutableLiveData<Throwable?>()
     val isLoading = MutableLiveData<Boolean?>()
 
@@ -26,22 +26,22 @@ class MainViewModel : ViewModel() {
     fun createGame(game: Game) {
         if (gameDisposable == null) {
             gameDisposable = MainApplication.kickchainApi.createGame(game)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doOnSubscribe {
-                        isLoading.value = true
-                        result.value = null
-                        error.value = null
-                    }
-                    .doAfterTerminate {
-                        gameDisposable = null
-                        isLoading.value = false
-                    }
-                    .subscribe({
-                        result.value = Unit
-                    }, {
-                        error.value = it
-                    })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe {
+                    isLoading.value = true
+                    result.value = null
+                    error.value = null
+                }
+                .doAfterTerminate {
+                    gameDisposable = null
+                    isLoading.value = false
+                }
+                .subscribe({
+                    result.value = game
+                }, {
+                    error.value = it
+                })
         }
     }
 }
